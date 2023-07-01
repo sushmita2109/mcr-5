@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { useRecipe } from "../context/RecipeContext";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
+import TextField from "@mui/material/TextField";
 
 const style = {
   position: "absolute",
@@ -27,8 +28,17 @@ const style = {
 export const ReceipeCard = ({ recipe }) => {
   const { receipeStates, receipeDispatch } = useRecipe();
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (recipe) => {
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
+  const [editData, setEditData] = useState({
+    name: "",
+    cusine: "",
+    imageURL: "",
+    ingredient: [],
+    steps: [],
+  });
 
   const deleteRecipe = (recipeId) => {
     const filteredData = receipeStates?.allRecipes?.filter(
@@ -37,7 +47,7 @@ export const ReceipeCard = ({ recipe }) => {
 
     receipeDispatch({ type: "DELETE_RECIPE", payload: filteredData });
   };
-  const editRecipe = (recipeId) => {};
+  const editRecipe = (recipe) => {};
   return (
     <Box
       sx={{
@@ -53,7 +63,7 @@ export const ReceipeCard = ({ recipe }) => {
         <div>
           <Button
             startIcon={<ModeEditIcon />}
-            onClick={() => handleOpen()}
+            onClick={() => handleOpen(recipe)}
           ></Button>
 
           <Button
@@ -66,7 +76,35 @@ export const ReceipeCard = ({ recipe }) => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
           >
-            <Box sx={style}></Box>
+            <Box sx={style}>
+              <TextField
+                id="outlined-basic"
+                value={editData.name}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-basic"
+                value={editData.cusine}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-basic"
+                value={editData.imageURL}
+                variant="outlined"
+              />
+
+              <TextField
+                id="outlined-basic"
+                value={editData.ingredient}
+                variant="outlined"
+              />
+              <TextField
+                id="outlined-basic"
+                value={editData.steps}
+                variant="outlined"
+              />
+              <Button onClick={() => editData()}>Update</Button>
+            </Box>
           </Modal>
         </div>
 
