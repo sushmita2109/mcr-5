@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 export const recipes = [
   {
     name: "Crock Pot Roast",
-    id: uuidv4,
+    id: uuidv4(),
     cusine: "contental",
     ingredients: [
       {
@@ -44,7 +44,7 @@ export const recipes = [
   },
   {
     name: "Roasted Asparagus",
-    id: uuidv4,
+    id: uuidv4(),
     cusine: "continental",
     ingredients: [
       {
@@ -120,6 +120,6 @@ export const recipes = [
     ],
     timers: [0, 0, 20, 20, 0],
     imageURL:
-      "http://dagzhsfg97k4.cloudfront.net/wp-content/uploads/2012/05/lentils3.jpg",
+      "http://upload.wikimedia.org/wikipedia/commons/c/c7/Spinach_pizza.jpg",
   },
 ];

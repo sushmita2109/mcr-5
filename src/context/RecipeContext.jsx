@@ -1,18 +1,28 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { recipeReducer, initialState } from "../reducer/recipeReducer";
-import { recipes } from "../data/data";
+import { recipes } from "../data/recipes";
 
 export const ReceipeContext = createContext();
 
 export const ReceipeProvider = ({ children }) => {
-  const [ReceipeStates, ReceipeDispatch] = useReducer(
+  const [receipeStates, receipeDispatch] = useReducer(
     recipeReducer,
     initialState
   );
-  const getData = () => {};
-  useEffect(() => {}, []);
+
+  const getData = () => {
+    console.log("....", recipes);
+    receipeDispatch({ type: "GET_RECIPES", payload: recipes });
+  };
+
+  useEffect(() => {
+    console.log("useEffect---->");
+    getData();
+  }, []);
+
+  //   console.log("-->", recipes);
   return (
-    <ReceipeContext.Provider value={{ ReceipeStates }}>
+    <ReceipeContext.Provider value={{ receipeStates, receipeDispatch }}>
       {children}
     </ReceipeContext.Provider>
   );

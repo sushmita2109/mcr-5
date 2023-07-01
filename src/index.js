@@ -9,11 +9,11 @@ import { ReceipeProvider } from "./context/RecipeContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <ReceipeProvider>
+    <ReceipeProvider>
+      <Router>
         <App />
-      </ReceipeProvider>
-    </Router>
+      </Router>
+    </ReceipeProvider>
   </React.StrictMode>
 );
 
