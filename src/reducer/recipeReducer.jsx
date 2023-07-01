@@ -20,6 +20,12 @@ export const recipeReducer = (state = initialState, action) => {
         allRecipes: [...action.payload],
       };
     }
+    case "ADD_NEW": {
+      return {
+        ...state,
+        allRecipes: [...state.allRecipes, action.payload],
+      };
+    }
     default: {
       return state;
     }
