@@ -5,31 +5,15 @@ export const recipes = [
     id: uuidv4(),
     cusine: "contental",
     ingredients: [
-      {
-        quantity: "1",
-        name: " beef roast",
-        type: "Meat",
-      },
-      {
-        quantity: "1 package",
-        name: "brown gravy mix",
-        type: "Baking",
-      },
-      {
-        quantity: "1 package",
-        name: "dried Italian salad dressing mix",
-        type: "Condiments",
-      },
-      {
-        quantity: "1 package",
-        name: "dry ranch dressing mix",
-        type: "Condiments",
-      },
-      {
-        quantity: "1/2 cup",
-        name: "water",
-        type: "Drinks",
-      },
+      "beef roast",
+
+      "brown gravy mix",
+
+      "dried Italian salad dressing mix",
+
+      "dry ranch dressing mix",
+
+      "water",
     ],
     steps: [
       "Place beef roast in crock pot.",
@@ -46,23 +30,7 @@ export const recipes = [
     name: "Roasted Asparagus",
     id: uuidv4(),
     cusine: "continental",
-    ingredients: [
-      {
-        quantity: "1 lb",
-        name: " asparagus",
-        type: "Produce",
-      },
-      {
-        quantity: "1 1/2 tbsp",
-        name: "olive oil",
-        type: "Condiments",
-      },
-      {
-        quantity: "1/2 tsp",
-        name: "kosher salt",
-        type: "Baking",
-      },
-    ],
+    ingredients: [" asparagus", "olive oil", "kosher salt"],
     steps: [
       "Preheat oven to 425°F.",
       "Cut off the woody bottom part of the asparagus spears and discard.",
@@ -85,31 +53,15 @@ export const recipes = [
     id: uuidv4(),
     cusine: "Asian",
     ingredients: [
-      {
-        quantity: "1 quart",
-        name: "beef broth",
-        type: "Misc",
-      },
-      {
-        quantity: "1 cup",
-        name: "dried green lentils",
-        type: "Misc",
-      },
-      {
-        quantity: "1/2 cup",
-        name: "basmati rice",
-        type: "Misc",
-      },
-      {
-        quantity: "1 tsp",
-        name: "curry powder",
-        type: "Condiments",
-      },
-      {
-        quantity: "1 tsp",
-        name: "salt",
-        type: "Condiments",
-      },
+      "beef broth",
+
+      "dried green lentils",
+
+      "basmati rice",
+
+      "curry powder",
+
+      "salt",
     ],
     steps: [
       "Bring broth to a low boil.",

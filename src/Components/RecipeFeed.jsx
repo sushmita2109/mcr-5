@@ -6,6 +6,7 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { v4 as uuidv4 } from "uuid";
 
 const style = {
   position: "absolute",
@@ -23,12 +24,20 @@ export const NewRecipe = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const { receipeDispatch } = useRecipe();
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     cusine: "",
+    imageURL: "",
     ingredients: [],
     steps: [],
   });
+  const addNewRecipe = () => {
+    const tempRecipe = { ...newRecipe, id: uuidv4() };
+    console.log("tempHab", tempRecipe);
+    setNewRecipe(tempRecipe);
+    receipeDispatch({ type: "ADD_NEW", payload: tempRecipe });
+  };
   return (
     <>
       <Button onClick={() => handleOpen()}>Add new Recipe</Button>
@@ -44,32 +53,47 @@ export const NewRecipe = () => {
             id="outlined-basic"
             label="Recipe Name"
             variant="outlined"
+            onChange={(e) =>
+              setNewRecipe({ ...newRecipe, name: e.target.value })
+            }
           />
           <TextField
             required
             id="outlined-basic"
             label="Recipe Image Link"
             variant="outlined"
+            onChange={(e) =>
+              setNewRecipe({ ...newRecipe, imageURL: e.target.value })
+            }
           />
           <TextField
             required
             id="outlined-basic"
             label="Cusine"
             variant="outlined"
+            onChange={(e) =>
+              setNewRecipe({ ...newRecipe, cusine: e.target.value })
+            }
           />
           <TextField
             required
             id="outlined-basic"
             label="Recipe Ingridients"
             variant="outlined"
+            onChange={(e) =>
+              setNewRecipe({ ...newRecipe, ingredients: e.target.value })
+            }
           />
           <TextField
             required
             id="outlined-basic"
             label="Recipe Steps"
             variant="outlined"
+            onChange={(e) =>
+              setNewRecipe({ ...newRecipe, steps: e.target.value })
+            }
           />
-          <Button>Submit</Button>
+          <Button onClick={() => addNewRecipe()}>Submit</Button>
         </Box>
       </Modal>
     </>

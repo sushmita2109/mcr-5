@@ -35,7 +35,7 @@ export const ReceipeDetailCard = () => {
             <List>
               <Typography variant="body1">Ingridents:</Typography>
               {data?.ingredients?.map((ingredient, idx) => (
-                <ListItem key={idx}>{ingredient.name} </ListItem>
+                <ListItem key={idx}>{ingredient} </ListItem>
               ))}
             </List>
             <List>
