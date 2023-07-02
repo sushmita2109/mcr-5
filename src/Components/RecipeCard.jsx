@@ -57,6 +57,7 @@ export const ReceipeCard = ({ recipe }) => {
         alignItems: "center",
         justifyContent: "center",
         gap: "10px",
+        backgroundColor: "red",
       }}
     >
       <Card sx={{ width: "300px", padding: "8px" }}>
